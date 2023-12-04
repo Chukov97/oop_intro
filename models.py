@@ -89,9 +89,6 @@ class Cart:
         if not self.products:
             raise ValueError('Корзина пуста')
         for product, quantity in self.products.items():
-            if product.check_quantity(quantity):
-                product.buy(quantity)
-            else:
-                raise ValueError('Недостаточно товара')
+            product.buy(quantity)
 
         self.clear()

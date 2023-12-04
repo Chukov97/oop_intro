@@ -73,6 +73,11 @@ class TestCart:
         cart.remove_product(product_book)
         assert product_book not in cart.products
 
+    def test_remove_product_whole_position_v2(self, cart, product_book):
+        cart.add_product(product_book, 10)
+        cart.remove_product(product_book, 10)
+        assert len(cart.products) == 0
+
     def test_remove_product_greater_than_position(self, cart, product_book):
         cart.add_product(product_book, 5)
         cart.remove_product(product_book, 10)
